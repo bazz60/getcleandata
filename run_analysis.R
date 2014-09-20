@@ -11,20 +11,19 @@ colnames(proj_ds_1) <- "Subject"
 proj_ds_2 <- read.table("C:/Users/ohaganb/Desktop/BI and Analytics/Cloudera/GetCleanData/project/UCI HAR Dataset/train/X_train.txt", header=FALSE, sep="")
                                                             # reads in the second txt file
 
-ds_2_cols <- read.table("C:/Users/ohaganb/Desktop/BI and Analytics/Cloudera/GetCleanData/project/UCI HAR Dataset/features.txt", header=FALSE, sep="")
+ds_2_cols <- read.table("C:/Users/ohaganb/Desktop/BI and Analytics/Cloudera/GetCleanData/project/UCI HAR Dataset/features.txt", header=FALSE, sep="", stringsAsFactors = FALSE)
                                                             # reads in column names from
                                                             # features.txt file
 ds_2_cols <- ds_2_cols[2]
                                                             # subset to keep only labels
 
-# ds_2_cols <- droplevels(ds_2_cols)
 
 colnames(ds_2_cols) <- "Labels"
                                                             # adds a label for the column
 
-# provideDimnames(proj_ds_2, sep = "", base = list(ds_2_cols))
 
-# colnames(proj_ds_2, do.NULL = FALSE, prefix = "col")
+colnames(proj_ds_2, do.NULL =TRUE)
+colnames(proj_ds_2[,1]) <- ds_2_cols[1,]
 
 
 proj_ds_3 <- read.table("C:/Users/ohaganb/Desktop/BI and Analytics/Cloudera/GetCleanData/project/UCI HAR Dataset/train/y_train.txt", header=FALSE, sep="")
